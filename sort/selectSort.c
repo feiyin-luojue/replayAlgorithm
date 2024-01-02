@@ -1,5 +1,5 @@
 #include <stdio.h>
-#define BUFFER_SIZE 7
+/* 选择排序：相较于冒泡排序，减少了交换次数 */
 
 int changeAtoB(int *numA, int *numB)
 {
@@ -12,7 +12,7 @@ int changeAtoB(int *numA, int *numB)
 
 int printNums(int *nums, int numsLen)
 {
-    for (int idx = 0; idx < BUFFER_SIZE;idx++)
+    for (int idx = 0; idx < numsLen;idx++)
     {
         printf("  %d  ", nums[idx]);
     }
@@ -43,7 +43,7 @@ int selectSort(int *nums, int numsLen)      //选择排序
 
 int main(int argc, char const *argv[])
 {
-    int nums[BUFFER_SIZE] = {1, 30, 24, 5, 58, 12, 39};
+    int nums[] = {1, 30, 24, 5, 58, 12, 39};
     int numsLen = sizeof(nums) / sizeof(nums[0]);
     printf("\t排序前：");
     printNums(nums, numsLen);
