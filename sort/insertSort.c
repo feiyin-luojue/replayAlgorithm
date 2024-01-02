@@ -14,13 +14,13 @@ int printNums(int *nums, int numsLen)
 int insertSort(int *nums, int numsLen)      //插入排序
 {
     #if 0
-    for (int idx = 1; idx < numsLen; idx++)
+    for (int begin = 1; begin < numsLen; begin++)
     {
-        int temp = nums[idx];
-        int insertPos = idx;
-        for (insertPos = idx ; insertPos > 0; insertPos--)
+        int insertVal = nums[begin];
+        int insertPos = begin;
+        for (insertPos = begin; insertPos > 0; insertPos--)
         {
-            if (nums[insertPos - 1] > temp)
+            if (nums[insertPos - 1] > insertVal)
             {
                 nums[insertPos] = nums[insertPos - 1];
             }
@@ -29,18 +29,19 @@ int insertSort(int *nums, int numsLen)      //插入排序
                 break;
             }
         }
-        nums[insertPos] = temp;
+        nums[insertPos] = insertVal;
     }
     #else   //优化
-    for (int idx = 1; idx < numsLen; idx++)
+    int insertVal = 0;
+    int insertPos = 0;
+    for (int begin = 1; begin < numsLen; begin++)
     {
-        int temp = nums[idx];
-        int insertPos = idx;
-        for (insertPos = idx;insertPos > 0 && nums[insertPos - 1] > temp; insertPos--)
+        insertVal = nums[begin];
+        for (insertPos = begin;insertPos > 0 && nums[insertPos - 1] > insertVal; insertPos--)
         {
             nums[insertPos] = nums[insertPos - 1];
         }
-        nums[insertPos] = temp;
+        nums[insertPos] = insertVal;
     }
     #endif
 }
